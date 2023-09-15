@@ -1,0 +1,12 @@
+- hosts: localhost
+  remote-user: ec2-user
+  become: yes
+  tasks:
+  - name: create a EC2-User
+    ec2:
+      key_name: Linux_Paris
+      instance_type: t2.micro
+      image: ami-123456
+      count: 1
+      vpc_subnet_id: subnet-29e63245
+      assign_public_ip: yes
